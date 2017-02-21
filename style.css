@@ -1,0 +1,116 @@
+* {
+  box-sizing: inherit;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background-attachment: fixed;
+  background-blend-mode: normal;
+  background-color: #cddc39;
+  background-image: linear-gradient(135deg, #50C9C3, #96DEDA);
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.65);
+  font-family: Lato, "Segoe UI", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+button,
+input {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+::placeholder {
+  color: rgba(153, 153, 153, 0.65);
+}
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1rem;
+  width: 300px;
+}
+
+.app__title {
+  font-weight: 400;
+  margin: 1rem auto 2rem;
+  text-align: center;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.form__fieldgroup {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.form__label {
+  flex-basis: 100%;
+}
+
+.form__field {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  flex: 1 1 10rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.form__field--number {
+  -moz-appearance: textfield;
+}
+
+.form__field::-webkit-outer-spin-button, .form__field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.form__btngroup {
+  display: flex;
+  flex-direction: column;
+  width: 2rem;
+}
+
+.form__btn {
+  background-color: indianred;
+  border: 1px solid #ccc;
+  color: white;
+  cursor: pointer;
+  flex: 1 0 100%;
+}
+
+.results {
+  background-color: crimson;
+  color: white;
+  font-weight: 300;
+  padding: 1rem;
+  width: 100%;
+}
+
+p {
+  margin: 0 0 1rem;
+}
