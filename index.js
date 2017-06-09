@@ -1,4 +1,4 @@
-function calculateLoan({ amount, apr, months }) {
+const calculateLoan = ({ amount, apr, months }) => {
   const monthlyRate = ((apr / 100) / 12);
   const monthlyRepayments = (
     monthlyRate +
@@ -24,9 +24,18 @@ const Results = (props) => {
 
   return (
     <div className="results">
-      <p>Monthly repayments: {toCurrency(monthlyRepayments)}</p>
-      <p>Total amount repayable: {toCurrency(totalAmount)}</p>
-      <p>Total cost of credit: {toCurrency(totalCost)}</p>
+      <div className="result">
+        <span className="result__label">Monthly repayments:</span>
+        <span className="result__amount">{toCurrency(monthlyRepayments)}</span>
+      </div>
+      <div className="result">
+        <span className="result__label">Total amount repayable:</span>
+        <span className="result__amount">{toCurrency(totalAmount)}</span>
+      </div>
+      <div className="result">
+        <span className="result__label">Total cost of credit:</span>
+        <span className="result__amount">{toCurrency(totalCost)}</span>
+      </div>
     </div>
   );
 };
@@ -49,7 +58,7 @@ class NumberField extends React.Component {
     const { min, max, step, name, value, children, onChangeEvent } = this.props;
     return (
       <div className="form__fieldgroup">
-        <label className="form__label" for={name}>{children}</label>
+        <label className="form__label" htmlFor={name}>{children}</label>
         <input
           className="form__field form__field--number"
           type="number"
@@ -63,15 +72,17 @@ class NumberField extends React.Component {
         />
         <div className="form__btngroup">
           <button
-            className="form__btn"
+            className="form__btn form__btn--no-bottom-border"
             onClick={this.increment}
             type="button"
+            aria-label={`Increase ${name}`}
           >+</button>
           <button
-            className="form__btn"
+            className="form__btn form__btn--no-top-border"
             onClick={this.decrement}
             type="button"
-          >-</button>
+            aria-label={`Decrease ${name}`}
+          >&ndash;</button>
         </div>
       </div>
     );
@@ -109,7 +120,7 @@ const CalculatorForm = (props) => {
         step={0.1}
         value={apr}
         onChangeEvent={onChangeEvent}
-      >APR interest rate</NumberField>
+      >APR interest rate (%)</NumberField>
     </form>
   );
 };
@@ -152,7 +163,7 @@ class App extends React.Component {
           onChangeEvent={this.handleChange}
           onSubmitEvent={this.handleSubmit}
         />
-        <p>* This calculator is for illustrative purposes only</p>
+        <p className="note">* This calculator is for illustrative purposes only</p>
         <Results
           monthlyRepayments={this.state.monthlyRepayments}
           totalAmount={this.state.totalAmount}
